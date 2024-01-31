@@ -1,0 +1,27 @@
+{
+  "name": "@growdl/db",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "pnpm build:ts",
+    "build:ts": "tsc --build",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "pnpm build && node dist/db/migrate.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "drizzle-orm": "^0.29.3",
+    "postgres": "^3.4.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.13",
+    "typescript": "^5.3.3"
+  },
+  "exports": {
+    "./schema": "./dist/schema.js"
+  }
+}
