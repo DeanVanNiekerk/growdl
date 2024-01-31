@@ -72,3 +72,5 @@ donkey/Cargo.lock
 test/db-dumps
 
 **/.next
+
+**/.env
