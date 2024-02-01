@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
 
   const config: UserConfig = {
     plugins: plugins,
-    // server: { port: 5001, host: '0.0.0.0' },
+    server: { port: 3030, host: '0.0.0.0' },
     // define: {
     //   __JSON_CONFIG__: JSON.stringify({
     //     shopUrl: env.USER_APP_ADDRESS,
