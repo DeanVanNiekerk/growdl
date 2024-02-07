@@ -1,0 +1,7 @@
+{
+  "name": "growdl",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
