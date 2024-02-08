@@ -1,5 +1,4 @@
 import TransactionListItem from "./components/TransactionListItem";
-import { useEffect, useState } from "react";
 import {
   IonContent,
   IonHeader,
@@ -8,26 +7,23 @@ import {
   IonRefresher,
   IonRefresherContent,
   IonTitle,
-  IonToggle,
   IonToolbar,
-  ToggleCustomEvent,
-  useIonViewWillEnter,
 } from "@ionic/react";
 import "./Transactions.css";
-import { Transaction, getTransactions } from "../../data/transactions";
+import { usePricedTransactions } from "../../hooks";
 
 const Transactions: React.FC = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const { transactions, isLoading } = usePricedTransactions();
 
-  useIonViewWillEnter(() => {
-    const txs = getTransactions();
-    setTransactions(txs);
-  });
+  // useIonViewWillEnter(() => {
+  //   const txs = getTransactions();
+  //   setTransactions(txs);
+  // });
 
   const refresh = (e: CustomEvent) => {
-    setTimeout(() => {
-      e.detail.complete();
-    }, 3000);
+    // setTimeout(() => {
+    //   e.detail.complete();
+    // }, 3000);
   };
 
   return (

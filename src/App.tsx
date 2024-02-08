@@ -2,6 +2,7 @@ import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Transactions from "./pages/transactions/Transactions";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -26,22 +27,27 @@ setupIonicReact({
   mode: "md",
 });
 
+// Create a client
+const queryClient = new QueryClient();
+
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" exact={true}>
-          <Redirect to="/transactions" />
-        </Route>
-        <Route path="/transactions" exact={true}>
-          <Transactions />
-        </Route>
-        {/* <Route path="/message/:id">
+  <QueryClientProvider client={queryClient}>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/" exact={true}>
+            <Redirect to="/transactions" />
+          </Route>
+          <Route path="/transactions" exact={true}>
+            <Transactions />
+          </Route>
+          {/* <Route path="/message/:id">
           <ViewMessage />
         </Route> */}
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  </QueryClientProvider>
 );
 
 export default App;

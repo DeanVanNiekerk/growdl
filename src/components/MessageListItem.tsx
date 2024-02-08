@@ -1,5 +1,5 @@
 import { IonItem, IonLabel, IonNote } from "@ionic/react";
-import { Message } from "../data/transactions";
+import { Message } from "../query/useCoinPriceQuery";
 import "./MessageListItem.css";
 
 interface MessageListItemProps {
